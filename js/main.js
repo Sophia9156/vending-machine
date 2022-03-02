@@ -1,87 +1,85 @@
-const coin100 = document.querySelector('.coin img:nth-of-type(1)');
-const coin500 = document.querySelector('.coin img:nth-of-type(2)');
-const coin1000 = document.querySelector('.coin img:nth-of-type(3)');
-const refresh = document.querySelector('.coin span');
+const money = document.querySelectorAll('.money');
 const stack = document.querySelector('.stack');
+const result = document.querySelector('.result');
 
-const drink = document.querySelectorAll('.result img');
-const cola = document.querySelector('.result img:nth-of-type(1)');
-const sprite = document.querySelector('.result img:nth-of-type(2)');
-const morning = document.querySelector('.result img:nth-of-type(3)');
-const bonbon = document.querySelector('.result img:nth-of-type(4)');
-const cha = document.querySelector('.result img:nth-of-type(5)');
-
-const colaBtn = document.querySelector('.button span:nth-of-type(1)');
-const spriteBtn = document.querySelector('.button span:nth-of-type(2)');
-const morningBtn = document.querySelector('.button span:nth-of-type(3)');
-const bonbonBtn = document.querySelector('.button span:nth-of-type(4)');
-const chaBtn = document.querySelector('.button span:nth-of-type(5)');
+const refresh = document.querySelector('.refresh');
+const btn = document.querySelectorAll('.btn');
 
 let total = 0;
 stack.textContent = total;
 
-coin100.onclick = function(){
-  total += 100;
-  stack.textContent = total;
-}
-coin500.onclick = function(){
-  total += 500;
-  stack.textContent = total;
-}
-coin1000.onclick = function(){
-  total += 1000;
-  stack.textContent = total;
-}
+money.forEach((value) => {
+  value.onclick = () => {
+    total += Number(value.getAttribute('data-value'));
+    stack.textContent = total;
+  }
+});
+
 refresh.onclick = function(){
   total = 0;
   stack.textContent = total;
-  drink.forEach(function(drink){
-    drink.classList.remove('active');
-  })
-}
+  result.innerHTML = '';
+};
 
-colaBtn.onclick = function(){
-  if(total >= 600){
-    cola.classList.add('active');
-    total -= 600;
-    stack.textContent = total;
-  }else{
-    alert('잔액이 부족합니다.')
+btn.forEach((value) => {
+  value.onclick = () => {
+    switch(value.getAttribute('data-value')) {
+      case 'cola': if(total >= 600) {
+        const img = document.createElement('img');
+        img.setAttribute('src', '../img/cola.png');
+        result.appendChild(img);
+        total -= 600;
+        stack.textContent = total;
+        break;
+      } else {
+        alert('잔액이 부족합니다.');
+        break;
+      }
+      case 'sprite': if(total >= 700) {
+        const img = document.createElement('img');
+        img.setAttribute('src', '../img/sprite.png');
+        result.appendChild(img);
+        total -= 700;
+        stack.textContent = total;
+        break;
+      } else {
+        alert('잔액이 부족합니다.');
+        break;
+      }
+      case 'morning': if(total >= 1400) {
+        const img = document.createElement('img');
+        img.setAttribute('src', '../img/morning.png');
+        result.appendChild(img);
+        total -= 1400;
+        stack.textContent = total;
+        break;
+      } else {
+        alert('잔액이 부족합니다.');
+        break;
+      }
+      case 'bonbon': if(total >= 800) {
+        const img = document.createElement('img');
+        img.setAttribute('src', '../img/bonbon.png');
+        result.appendChild(img);
+        total -= 800;
+        stack.textContent = total;
+        break;
+      } else {
+        alert('잔액이 부족합니다.');
+        break;
+      }
+      case '17cha': if(total >= 1300) {
+        const img = document.createElement('img');
+        img.setAttribute('src', '../img/17cha.png');
+        result.appendChild(img);
+        total -= 1300;
+        stack.textContent = total;
+        break;
+      } else {
+        alert('잔액이 부족합니다.');
+        break;
+      }
+      default: null
+    }
   }
-}
-spriteBtn.onclick = function(){
-  if(total >= 700){
-    sprite.classList.add('active');
-    total -= 700;
-    stack.textContent = total;
-  }else{
-    alert('잔액이 부족합니다.')
-  }
-}
-morningBtn.onclick = function(){
-  if(total >= 1400){
-    morning.classList.add('active');
-    total -= 1400;
-    stack.textContent = total;
-  }else{
-    alert('잔액이 부족합니다.')
-  }
-}
-bonbonBtn.onclick = function(){
-  if(total >= 800){
-    bonbon.classList.add('active');
-    total -= 800;
-    stack.textContent = total;
-  }else{
-    alert('잔액이 부족합니다.')
-  }
-}
-chaBtn.onclick = function(){
-  if(total >= 1300){
-    cha.classList.add('active');
-    total -= 1300;
-    stack.textContent = total;
-  }else{
-    alert('잔액이 부족합니다.')
-  }
-}
+})
