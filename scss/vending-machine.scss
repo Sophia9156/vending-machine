@@ -11,6 +11,7 @@ h2{
     font-size: 2em;
     color: rgb(95, 84, 62);
 }
+
 .vending-top{
     display: flex; justify-content: center; align-items: center;
 }
@@ -29,6 +30,7 @@ h2{
     0%,33%{color: rgb(156, 111, 20);}
     34%,100%{color: #aaa;}
 }
+
 .vending-machine{
     width: 400px; height: 600px;
     margin: 0 100px;
@@ -72,6 +74,7 @@ h2{
         img{width: 150px;}
     }
 }
+
 .result{
     width: 400px; height: 500px;
     background-color: rgba(255,255,255,0.3);
@@ -83,8 +86,16 @@ h2{
         max-width: 25%;
         max-height: 80%;
         margin: 10px;
+        animation: swing 2s forwards ease-in-out;
     }
 }
+@keyframes swing {
+    10%{transform: rotate(0);}
+    20%{transform: rotate(10deg);}
+    30%{transform: rotate(-10deg);}
+    40%{transform: rotate(0);}
+}
+
 .money-wrap{
     width: 100%;
     margin: 50px auto;
@@ -104,5 +115,3 @@ h2{
         }
     }
 }
-
-
