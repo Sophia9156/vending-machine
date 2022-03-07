@@ -26,7 +26,7 @@ btn.forEach((value) => {
     switch(value.getAttribute('data-value')) {
       case 'cola': if(total >= 600) {
         const img = document.createElement('img');
-        img.setAttribute('src', '../img/cola.png');
+        img.setAttribute('src', '/img/cola.png');
         result.appendChild(img);
         total -= 600;
         stack.textContent = total;
@@ -37,7 +37,7 @@ btn.forEach((value) => {
       }
       case 'sprite': if(total >= 700) {
         const img = document.createElement('img');
-        img.setAttribute('src', '../img/sprite.png');
+        img.setAttribute('src', '/img/sprite.png');
         result.appendChild(img);
         total -= 700;
         stack.textContent = total;
@@ -48,7 +48,7 @@ btn.forEach((value) => {
       }
       case 'morning': if(total >= 1400) {
         const img = document.createElement('img');
-        img.setAttribute('src', '../img/morning.png');
+        img.setAttribute('src', '/img/morning.png');
         result.appendChild(img);
         total -= 1400;
         stack.textContent = total;
@@ -59,7 +59,7 @@ btn.forEach((value) => {
       }
       case 'bonbon': if(total >= 800) {
         const img = document.createElement('img');
-        img.setAttribute('src', '../img/bonbon.png');
+        img.setAttribute('src', '/img/bonbon.png');
         result.appendChild(img);
         total -= 800;
         stack.textContent = total;
@@ -70,7 +70,7 @@ btn.forEach((value) => {
       }
       case '17cha': if(total >= 1300) {
         const img = document.createElement('img');
-        img.setAttribute('src', '../img/17cha.png');
+        img.setAttribute('src', '/img/17cha.png');
         result.appendChild(img);
         total -= 1300;
         stack.textContent = total;
